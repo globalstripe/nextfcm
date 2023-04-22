@@ -4,6 +4,7 @@ import "firebase/messaging";
 import { firebaseCloudMessaging } from "../utils/firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
+import styles from "../styles/Home.module.css";
 
 function PushNotificationLayout({ children }) {
   const router = useRouter();
@@ -32,7 +33,9 @@ function PushNotificationLayout({ children }) {
               <h6>{event.data.firebaseMessaging.payload.notification.body}</h6>
             </div>,
             {
-              closeOnClick: false,
+                position: toast.POSITION.TOP_RIGHT,
+                className: styles.toastmessage,
+                closeOnClick: false,
             }
           );
 
@@ -79,7 +82,11 @@ function PushNotificationLayout({ children }) {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+      className={styles.toastcontainer}
+      autoClose={15000}
+      pauseOnHover
+      />
       {children}
     </>
   );
