@@ -7,15 +7,13 @@ const firebaseCloudMessaging = {
     if (!firebase?.apps?.length) {
       // Initialize the Firebase app with the credentials
       firebase?.initializeApp({
-        apiKey: "AIzaSyDlzzzr8EpH7x9Kv3zE3bKaU3d3G7cK2YY",
-        authDomain: "livescores-c375c.firebaseapp.com",
-        databaseURL: "https://livescores-c375c.firebaseio.com",
-        projectId: "livescores-c375c",
-        storageBucket: "livescores-c375c.appspot.com",
-        messagingSenderId: "219365098522",
-        appId: "1:219365098522:web:ee827e71a84d6686bbfda3",
-        measurementId: "G-6QY628TVTX",
-        //vapidKey: "BIyVUWeDndD-yCZSzVzG7H7Mgs4YrMntH_yOVy4t-8b_uGLTZtFOCRwATkV1-ufajy1BC9AJER-THGDD0Mw4SdA"
+        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+        authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+        measurementId: process.env.NEXT_PUBLIC_MEASUREMENTID,
       });
 
       try {
@@ -51,7 +49,7 @@ const firebaseCloudMessaging = {
         if (status && status === "granted") {
           // Get new token from Firebase
           const fcm_token = await messaging.getToken({
-            vapidKey: "BIyVUWeDndD-yCZSzVzG7H7Mgs4YrMntH_yOVy4t-8b_uGLTZtFOCRwATkV1-ufajy1BC9AJER-THGDD0Mw4SdA",
+            vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
           });
 
           console.log('FCMToken:', fcm_token)
