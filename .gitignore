@@ -38,3 +38,4 @@ yarn-error.log*
 .env.example
 .env.local
 .env.staging
+env.local
