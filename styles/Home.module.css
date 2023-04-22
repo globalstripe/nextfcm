@@ -2,6 +2,24 @@
   padding: 0 2rem;
 }
 
+.toastmessage {
+  background: rgb(165, 165, 227);
+  color: #100b0b;
+  font-size: 20px;
+  width: 24vw;
+  padding: 30px 20px;
+}
+
+.toastcontainer {
+  background: rgb(0, 130, 139);
+  color: #fff;
+  font-size: 20px;
+  width: 34vw;
+  padding: 30px 20px;
+}
+
+
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
