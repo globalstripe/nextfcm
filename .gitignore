@@ -30,3 +30,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+
+# Any local envfiles
+
+.env
+.env.example
+.env.local
+.env.staging
