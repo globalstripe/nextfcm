@@ -6,19 +6,26 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
+
+// https://www.npmjs.com/package/react-toastify
+
 function PushNotificationLayout({ children }) {
+
   const router = useRouter();
+
   useEffect( () => {
     console.log('Ran Use Effect in PushNotificationLayout')
     const resp = setToken();
     console.log('Back in PushNotificationLayout', resp)
 
     // Event listener that listens for the push notification event in the background
+    // This if code checks if the browser supports service workers.
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.addEventListener("message", (event) => {
-        console.log("event for the service worker");
+        console.log("Event received by serviceWorker Listener");
         console.log(event.data);
-        // console.log(event.data.firebaseMessaging.payload)
+
+       // console.log(event.data.firebaseMessaging.payload)
        // alert(JSON.stringify(event.data.firebaseMessaging.payload))
        // alert(event.data.firebaseMessaging.payload.notification.title 
        //   + "\n\n" 
@@ -57,6 +64,7 @@ function PushNotificationLayout({ children }) {
         console.log(error);
       }
     }
+
   });
 
   // Handles the click function on the toast showing push notification
